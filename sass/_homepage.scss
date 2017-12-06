@@ -8,12 +8,8 @@
 }
 
 .page-template-template-home-page-php .home-images h2 {
-    background: none repeat scroll 0 0 rgba(119, 119, 119, 0.7);
+    background: $font-white-color;
     padding: 5px 10px;
-    position: absolute;
-    right: 0;
-    top: -23px;
-    font-size: 1rem;
     -webkit-transition:all 0.3s ease;
     -moz-transition:all 0.3s ease;
     -ms-transition:all 0.3s ease;
@@ -21,34 +17,43 @@
     transition:all 0.3s ease;
     z-index: 100;
     
-    
-    @media (min-width: 375px) {
-        font-size: 1.4rem;
+    @media (max-width: 768px) {
+        width: 100%;
+        position: relative;
+        margin: 0;
     }
     
     @media (min-width: 769px) {
-        font-size: 1.7rem;
+        background: none repeat scroll 0 0 rgba($font-white-color, .85);
+        top: -19px;
+        position: absolute;
+        right: 0;
         
         &:hover {
-            background: none repeat scroll 0 0 rgba(119, 119, 119, 0.9);
+            background: none repeat scroll 0 0 rgba($font-white-color, .9);
         }
     }
 }
 
 .page-template-template-home-page-php .home-images h2 a {
-    color: #dfdfdf;
+    color: $font_header_color;
+    font-family: $font_header;
+    font-size: 1.8rem;
+    
+    @media (min-width: 769px) {
+        font-size: 2rem;
+        color: rgba($font_header_color, .7);
+    }
 }
 
 .page-template-template-home-page-php .home-images h2:hover a {
-    color: $font_header_color;
-    -webkit-transition:all 0.3s ease;
-    -moz-transition:all 0.3s ease;
-    -ms-transition:all 0.3s ease;
-    -o-transition:all 0.3s ease;
-    transition:all 0.3s ease;
-    
     @media (min-width: 769px) {
-        color: #fff;
+        -webkit-transition:all 0.3s ease;
+        -moz-transition:all 0.3s ease;
+        -ms-transition:all 0.3s ease;
+        -o-transition:all 0.3s ease;
+        transition:all 0.3s ease;
+        color: $font_header_color;
     }
 }
 

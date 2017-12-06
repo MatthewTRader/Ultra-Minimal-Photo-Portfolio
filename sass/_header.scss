@@ -1,19 +1,18 @@
 // _header.scss
 header {
-    width: 16.66667%;
-    height: 100vh;
-    position: fixed;
-    float:right;
+    z-index: 99;
+    background: #fff;
+    padding: 5px 10px 5px;
+    height: 140px;
+    position: relative;
+    text-align: center;
     
-    @media (max-width: 1024px) {
-        width: 100%;
-        z-index: 99;
-        background: #fff;
-        padding: 5px 10px 0;
-        height: 120px;
-        position: relative;
-        text-align: center;
-        float:none;
+     @media (min-width: 1024px) {
+        height: 100vh;
+        position: fixed;
+        padding: 25px 10px 10px 10px;
+        width: 15.66%;
+        text-align: left;
     }
     
     h2 {
@@ -21,19 +20,6 @@ header {
     }
 }
 
-.header {
-    padding: 25px 10px 10px 10px;
-    height: 100%;
-    
-    @media (max-width: 1024px) {
-        height: 120px;
-        padding: 5px;
-        
-        br {
-            display: none;
-        }
-    }
-}
 
 .logo {
     margin: 25px auto 10px;
@@ -52,55 +38,53 @@ header {
     
 }
 
-.phoneNo {
-    text-align: left;
-    font-size: .9rem;
-    font-family: arial;
+.contact-info {
     position: absolute;
-    bottom: 25px;
-    height: 25px;
-    
-    span {
-        font-size: 1.2rem;
-        margin-bottom: 5px;
-    }
-    
-    @media (min-width: 375px) {
-        font-size: 1rem;
-        
-        span {
-            font-size: 1.65rem;
-        }
-    }
+    top: 10px;
+    left: 10px;
+    right: 10px;
     
     @media (min-width: 1024px) {
-        height: auto;
+        text-align: left;
+        position: absolute;
+        bottom: 90px;
+        left: 10px;
+        right: auto;
+        top: auto;
     }
-    
-    @media (min-width: 1200px) {
-        font-size: .86rem;
-        
-        span {
-            font-size: 2rem;
-        }
-    }
-    
-     @media (min-width: 1400px) {
-         font-size: 1rem;
-        
-        span {
-            font-size: 2.25rem;
-        }
-    }
-    
     a {
         color: #808080;
     }
+    p {
+        margin: 0;
+    }
 }
 
-.email a {
-    @media (min-width: 1024px) and (max-width: 1200px) {
-        font-size: .71rem;
+.phoneNo {
+    font-size: 1.2rem;
+    
+    @media (max-width: 1023px) {
+        top: 0;
+        position: absolute;
+        left: auto;
+        right: 0;
+    }
+
+    @media (min-width: 375px) {
+        font-size: 1.65rem;
+    }
+
+    @media (min-width: 1024px) {
+        height: auto;
+        display: block;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 2rem;
+    }
+
+    @media (min-width: 1400px) {
+        font-size: 2.25rem;
     }
 }
 
@@ -108,10 +92,12 @@ nav {
     margin: 50px 0;
     ul {
         list-style: none;
+        padding-left: 25px;
+
         li {
             padding-left: 15px;
             font-size: 1.1rem;
-            font-weight: 700;
+            font-weight: 500;
             line-height: 2rem;
             a {
                 color: #808080;
@@ -143,24 +129,14 @@ nav {
     }
     nav ul {
         margin-left: 0;
+        padding-left: 0;
+        
     }
     nav ul li {
         padding-left: 15px;
         display: inline-block;
     }
     .logo {
-        width: 170px;
-    }
-    .phoneNo {
-        width: 95%;
-        top: 10px;
-    }
-    .phoneNo span {
-        font-size: 1.3rem;
-        float: left;
-    }
-    .phoneNo a {
-        float: right;
-        margin-top: -2px;
+        max-width: 200px;
     }
 }

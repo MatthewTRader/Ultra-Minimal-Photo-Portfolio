@@ -557,6 +557,9 @@ function my_post_gallery($output, $attr) {
 
     // Here's your actual output, you may customize it to your need
     $output = "<div class=\"gallery\">\n";
+    
+    $thumb_id = get_post_thumbnail_id(get_the_ID()); 
+    $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true); if( $alt ): endif;
 
     // Now you loop through each attachment
     foreach ($attachments as $id => $attachment) {
@@ -565,7 +568,7 @@ function my_post_gallery($output, $attr) {
 //      $img = wp_get_attachment_image_src($id, 'my-custom-image-size');
         $img = wp_get_attachment_image_src($id, 'full');
 
-        $output .= "<amp-img  layout=\"responsive\" src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
+        $output .= "<amp-img  layout=\"responsive\" src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"{$alt}\" />\n";
         $output .= "</amp-img>\n";
     }
 
@@ -584,20 +587,59 @@ function crunchify_stop_loading_wp_embed_and_jquery() {
 add_action('init', 'crunchify_stop_loading_wp_embed_and_jquery');
 
 
-function minimalPhoto_customize_register( $wp_customize ) {
-    $wp_customize->add_setting( 'minimalPhoto_logo' ); // Add setting for logo uploader
-         
-    // Add control for logo uploader (actual uploader)
+function ultraPhoto_theme_customizer( $wp_customize ) {
+    
+    
+    // Add logo image field to customizer
+    $wp_customize->add_setting( 'ultraPhoto_logo' );
+    
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ultraPhoto_logo', array(
-        'label'    => __( 'Upload Logo (replaces text)', 'minimalPhoto' ),
+        'label'    => __( 'Logo', 'ultraPhoto' ),
         'section'  => 'title_tagline',
-        'settings' => 'minimalPhoto_logo',
+        'settings' => 'ultraPhoto_logo',
     ) ) );
     
     
-}
-add_action( 'customize_register', 'ec_customize_register' );
+    // Add logo width to customizer
+    $wp_customize->add_setting( 'ultraPhoto_number_setting_w', array(
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'ultraPhoto_sanitize_number_absint',
+      'default' => 7,
+    ) );
 
+    $wp_customize->add_control( 'ultraPhoto_number_setting_w', array(
+      'type' => 'number',
+      'section'  => 'title_tagline',
+      'label' => __( 'Logo Width' ),
+      'description' => __( "Add height and width to make the logo maintain it's ratio for amp" ),
+    ) );
+    
+    
+    // Add logo height to customizer
+    $wp_customize->add_setting( 'ultraPhoto_number_setting_h', array(
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'ultraPhoto_sanitize_number_absint',
+      'default' => 5,
+    ) );
+
+    $wp_customize->add_control( 'ultraPhoto_number_setting_h', array(
+      'type' => 'number',
+      'section'  => 'title_tagline',
+      'label' => __( 'Logo Height' ),
+    ) );
+    
+    
+
+    function ultraPhoto_sanitize_number_absint( $number, $setting ) {
+      // Ensure $number is an absolute integer (whole number, zero or greater).
+      $number = absint( $number );
+
+      // If the input is an absolute integer, return it; otherwise, return the default
+      return ( $number ? $number : $setting->default );
+    }
+    
+}
+add_action( 'customize_register', 'ultraPhoto_theme_customizer' );
 
 
 ?>

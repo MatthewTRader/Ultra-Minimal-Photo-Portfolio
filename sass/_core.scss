@@ -188,3 +188,9 @@ div.aligncenter {
     display:none;
     visibility:hidden;
 }
+
+@media (max-width: 600px) {
+    html #wpadminbar {
+        top: -46px;
+    }
+}
