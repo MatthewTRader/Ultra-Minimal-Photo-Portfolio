@@ -70,49 +70,36 @@ function ultraPhoto_nav()
 	);
 }
 
-// Load Ultra Photo scripts (header.php)
-//function ultraPhoto_header_scripts()
-//{
+//Load Ultra Photo scripts (header.php)
+function ultraPhoto_header_scripts()
+{
 //    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-//
-//    	wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
-//        wp_enqueue_script('conditionizr'); // Enqueue it!
-//
-//        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
-//        wp_enqueue_script('modernizr'); // Enqueue it!
 //        
 //        wp_register_script('vendor', get_template_directory_uri() . '/js/vendor/jquery.js', array('jquery'), '1.0.0'); // Custom scripts
 //        wp_enqueue_script('vendor'); // Enqueue it!
-//
-//       wp_register_script('foundation', get_template_directory_uri() . '/js/foundation.min.js', array('jquery'), '1.0.0'); // Custom scripts
-//        wp_enqueue_script('foundation'); // Enqueue it!
-//        
-//        wp_register_script('bxslider', get_template_directory_uri() . '/js/jquery.bxslider.min.js', array('jquery'), '1.0.0'); // Custom scripts
-//        wp_enqueue_script('bxslider'); // Enqueue it!
 //        
 //         wp_register_script('ultraPhotoscripts', get_template_directory_uri() . '/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
 //        wp_enqueue_script('ultraPhotoscripts'); // Enqueue it!
-//  
 //    
 //    }
-//}
-//
-//// Load Ultra Photo conditional scripts
-//function ultraPhoto_conditional_scripts()
-//{
+}
+
+// Load Ultra Photo conditional scripts
+function ultraPhoto_conditional_scripts()
+{
 //    if (is_page('pagenamehere')) {
 //        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
 //        wp_enqueue_script('scriptname'); // Enqueue it!
 //    }
-//}
-//
-//// Load Ultra Photo styles
-//function ultraPhoto_styles()
-//{
-//
+}
+
+// Load Ultra Photo styles
+function ultraPhoto_styles()
+{
+
 //    wp_register_style('stylesheet', get_template_directory_uri() . '/style.css', array(), 'all');
 //    wp_enqueue_style('stylesheet'); // Enqueue it!
-//}
+}
 
 // Register Ultra Photo Navigation
 function register_ultraPhoto_menu()
@@ -641,5 +628,14 @@ function ultraPhoto_theme_customizer( $wp_customize ) {
 }
 add_action( 'customize_register', 'ultraPhoto_theme_customizer' );
 
+/**
+ *
+ * @param Checks for ssl returns https if needed
+ * @param int $p
+ * @return filter
+ */
+function get_theme_mod_img($mod_name){
+     return str_replace(array('http:', 'https:'), '', get_theme_mod($mod_name));
+}
 
 ?>

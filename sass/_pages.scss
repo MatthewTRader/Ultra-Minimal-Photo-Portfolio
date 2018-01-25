@@ -30,16 +30,31 @@ p {
     }
 }
 
+article {
+    padding: 0 10px;
+    
+    amp-img {
+        margin: 2.5px;
+    }
+}
+
 .cta {
-    background: rgba(150, 177, 210, 0.7);
+    background: rgba(150, 177, 210, 1);
     color: $bg_body_color;
     padding: 10px;
-    width: 100%;
     margin: 0 auto 20px;
+    font-family: $font_body;
 
     @media (min-width: 769px) {
         width: 60%;
     }
+    
+    fieldset {
+        border: none;
+        margin: 0 2px;
+        padding: 0;
+    }
+    
     .packages {
         text-align: center;
         color: $bg_header_color;
@@ -51,24 +66,34 @@ p {
             font-size: 1.4rem;
         }
     }
+    
+    span {
+        line-height: 2rem;
+    }
 
     p {
         color: #fff;
     }
-    .wpcf7-submit {
+    label {
+        margin-bottom: 5px;
+    }
+    .button {
         border: none;
         box-shadow: none;
         background: #fff;
         color: $font_header_color;
-        padding: 10px 50px;
         font-weight: 700;
+        max-width: 150px;
+        text-transform: uppercase;
+        font-size: 1.1rem;
     }
     textarea {
         height: 100px;
-        border: none;
     }
-    input {
-        border: none;
+    select {
+        margin: 0 0 10px;
+        height: 30px;
+        padding: 0;
     }
 }
 
@@ -117,6 +142,16 @@ p {
 
             @media (min-width: 769px) {
                 font-size: 1.2rem;
+                height: 45px;
+                display:-webkit-box;
+                display:-ms-flexbox;
+                display:flex;
+                -webkit-box-align:center;
+                -ms-flex-align:center;
+                align-items:center;
+                -webkit-box-pack:center;
+                -ms-flex-pack:center;
+                justify-content:center;
 
                 a {
                     display: block;
@@ -124,6 +159,7 @@ p {
             }
             @media (min-width: 1200px) {
                 font-size: 1.4rem;
+                height: 50px;
             }
         }
     }

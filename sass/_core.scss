@@ -9,6 +9,9 @@ html, body, p, li, a, h1, h2, h3, h4, h5, h6, img {
     -ms-transition:all 0.3s ease;
     -o-transition:all 0.3s ease;
     transition:all 0.3s ease;
+}
+
+header, h1, h2, h3, h4, h5, h6 {
     -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -27,7 +30,7 @@ p, li {
 
 h1 {
 	font-family: $font_header;
-	margin-left: 5px;
+	margin-left: 15px;
     font-size: 3rem;
     color: $font_header_color;
 }
@@ -41,12 +44,6 @@ h2 {
     color: #000;
     margin-bottom: 20px;
     color: $font_body_color;
-}
-
-select, input, textarea, input[type="text"] {
-    font-family: $font_body;
-	font-size: 1rem;
-	color: $font_body_color;
 }
 
 .center {
@@ -92,6 +89,7 @@ main {
 	padding: 25px 0;
 	background: none repeat scroll 0 0 $bg_body_color;
 }
+
 
 img {
 	max-width: 100%;
@@ -194,3 +192,28 @@ div.aligncenter {
         top: -46px;
     }
 }
+
+
+textarea, input, select {
+    background-color: #fff;
+    font-family: $font_body;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    color: #777;
+    display: block;
+    font-size: 1.3rem;
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
+    height: 2.3125rem;
+    border: none;
+    width: 100%;
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: box-shadow 0.45s,border-color 0.45s ease-in-out;
+    
+    @media (min-width: 769px) {
+        font-size: 1.1rem;
+    }
+}
+
